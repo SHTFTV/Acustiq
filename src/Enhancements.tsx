@@ -6,7 +6,7 @@ import './enhancements.css';
 const gallery = [
   {src:'/projects/linear-wood-feature-ceiling.webp',title:'Linear Wood Feature Ceiling',type:'Linear wood / architectural ceiling',description:'Real installation photography showing the visual rhythm, suspension zone and integrated services of a linear wood ceiling assembly.',tags:['Linear wood','Feature ceiling','Integrated services']},
   {src:'/projects/cloud-ceiling-finished.webp',title:'Finished Suspended Cloud Ceiling',type:'Acoustic cloud / custom ceiling',description:'Completed suspended ceiling feature with integrated lighting, showing how shaped ceiling elements can define a space while coordinating with building services.',tags:['Cloud ceiling','Integrated lighting','Finished installation']},
-  {src:'/projects/cloud-ceiling-installation.webp',title:'Cloud Ceiling Installation Detail',type:'Installation / specialty ceiling',description:'In-progress ceiling construction showing framing, boarding and field coordination before final finishing — useful context for designers, estimators and installers.',tags:['Installation','Framing','Drywall','Coordination']}
+  {src:'https://raw.githubusercontent.com/SHTFTV/rambowalls.com/main/public/images/service-ceilings.png',title:'Cloud Ceiling Installation Detail',type:'Installation / specialty ceiling',description:'In-progress ceiling construction showing framing, boarding and field coordination before final finishing — useful context for designers, estimators and installers.',tags:['Installation','Framing','Drywall','Coordination']}
 ];
 
 function Visualizer(){
