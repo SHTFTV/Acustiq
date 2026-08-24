@@ -2,7 +2,7 @@ import React from 'react';
 import {ArrowRight, ChevronRight, FileText, Grid3X3, Layers3, PanelsTopLeft, Ruler, ShieldCheck, Volume2, DraftingCompass, Wrench, Image as ImageIcon, Building2, Database, FileCode2} from 'lucide-react';
 import TechnicalLibraryPage from './TechnicalLibraryPage';
 import {RegionalInstallerPage} from './RegionalPages';
-import SystemAuthority from './SystemAuthority';
+import {SystemAuthorityPage} from './SystemAuthority';
 
 const systems=[
  {slug:'linear-wood',title:'Linear Wood Ceilings',short:'Warm architectural rhythm with acoustic and service-integration options.',Icon:PanelsTopLeft},
@@ -25,6 +25,6 @@ function Products(){return <section className="page"><div className="pagehero"><
 function App(){const [path,setPath]=React.useState(currentPath());React.useEffect(()=>{const f=()=>setPath(currentPath());window.addEventListener('popstate',f);return()=>window.removeEventListener('popstate',f)},[]);
  if(path==='/technical-library')return <TechnicalLibraryPage/>;
  const installer=path.match(/^\/installers\/([^/]+)$/); if(installer)return <div className="site"><Header/><RegionalInstallerPage slug={installer[1]}/><Footer/></div>;
- const system=path.match(/^\/systems\/([^/]+)$/); if(system)return <div className="site"><Header/><main><SystemAuthority slug={system[1]}/></main><Footer/></div>;
+ const system=path.match(/^\/systems\/([^/]+)$/); if(system)return <div className="site"><Header/><main><SystemAuthorityPage slug={system[1]}/></main><Footer/></div>;
  let body:React.ReactNode=<Home/>;if(path==='/systems')body=<SystemsIndex/>;else if(path==='/products'||path==='/product-knowledge')body=<Products/>;return <div className="site"><Header/><main>{body}</main><Footer/></div>}
 export default App;
