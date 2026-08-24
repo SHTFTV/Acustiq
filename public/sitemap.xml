@@ -1,8 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url>
-    <loc>https://acustiq.ca/</loc>
-    <changefreq>weekly</changefreq>
-    <priority>1.0</priority>
-  </url>
+<url><loc>https://www.acustiq.ca/</loc><changefreq>weekly</changefreq><priority>1.0</priority></url>
+<url><loc>https://www.acustiq.ca/systems</loc><changefreq>weekly</changefreq><priority>0.95</priority></url>
+<url><loc>https://www.acustiq.ca/systems/linear-wood</loc><changefreq>monthly</changefreq><priority>0.9</priority></url>
+<url><loc>https://www.acustiq.ca/systems/linear-metal</loc><changefreq>monthly</changefreq><priority>0.9</priority></url>
+<url><loc>https://www.acustiq.ca/systems/acoustic-baffles</loc><changefreq>monthly</changefreq><priority>0.9</priority></url>
+<url><loc>https://www.acustiq.ca/systems/open-cell</loc><changefreq>monthly</changefreq><priority>0.9</priority></url>
+<url><loc>https://www.acustiq.ca/systems/acoustic-clouds</loc><changefreq>monthly</changefreq><priority>0.9</priority></url>
+<url><loc>https://www.acustiq.ca/systems/suspended-tbar</loc><changefreq>monthly</changefreq><priority>0.9</priority></url>
+<url><loc>https://www.acustiq.ca/systems/specialty</loc><changefreq>monthly</changefreq><priority>0.9</priority></url>
+<url><loc>https://www.acustiq.ca/product-knowledge</loc><changefreq>weekly</changefreq><priority>0.9</priority></url>
+<url><loc>https://www.acustiq.ca/visualizer</loc><changefreq>monthly</changefreq><priority>0.85</priority></url>
+<url><loc>https://www.acustiq.ca/technical-library</loc><changefreq>weekly</changefreq><priority>0.85</priority></url>
+<url><loc>https://www.acustiq.ca/installers/vancouver</loc><changefreq>monthly</changefreq><priority>0.85</priority></url>
 </urlset>
