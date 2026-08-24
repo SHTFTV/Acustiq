@@ -3,13 +3,17 @@ import {createRoot} from 'react-dom/client';
 import App from './App.tsx';
 import Enhancements from './Enhancements.tsx';
 import VisualizerPage from './VisualizerPage.tsx';
+import {SystemAuthorityPage,SystemsAuthorityIndex,authoritySystemSlugs} from './SystemAuthority.tsx';
 import {RegionalInstallerPage,regionalCities} from './RegionalPages.tsx';
 import './index.css';
 
 function Root(){
- if(/^\/visualizer\/?$/.test(window.location.pathname)) return <VisualizerPage/>;
- const match=window.location.pathname.match(/^\/installers\/([^/]+)\/?$/);
- const slug=match?.[1];
+ const path=window.location.pathname.replace(/\/+$/,'')||'/';
+ if(path==='/visualizer') return <VisualizerPage/>;
+ if(path==='/systems') return <SystemsAuthorityIndex/>;
+ const systemMatch=path.match(/^\/systems\/([^/]+)$/); const systemSlug=systemMatch?.[1];
+ if(systemSlug && authoritySystemSlugs.includes(systemSlug)) return <SystemAuthorityPage slug={systemSlug}/>;
+ const match=path.match(/^\/installers\/([^/]+)$/); const slug=match?.[1];
  if(slug && regionalCities.some(city=>city[0]===slug)) return <RegionalInstallerPage slug={slug}/>;
  return <><App/><Enhancements/></>;
 }
