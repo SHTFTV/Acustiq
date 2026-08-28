@@ -6,7 +6,6 @@ import {regionalCities} from './RegionalPages';
 export const routes=[
   '/', '/systems', ...authoritySystemSlugs.map(slug=>`/systems/${slug}`),
   '/visualizer', '/product-knowledge', '/technical-library', '/contractors', '/gallery',
-  ...regionalCities.map(([slug])=>`/locations/${slug}`),
   ...regionalCities.map(([slug])=>`/installers/${slug}`),
 ];
 
