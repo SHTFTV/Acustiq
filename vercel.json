@@ -9,7 +9,7 @@
     { "source": "/products", "destination": "/product-knowledge", "permanent": true },
     { "source": "/for-matt", "destination": "/product-knowledge", "permanent": true },
     { "source": "/guest-post", "destination": "/product-knowledge", "permanent": true },
-    { "source": "/locations/:slug", "destination": "/installers/:slug", "permanent": true }
+    { "source": "/locations/:slug*", "destination": "/installers/:slug*", "permanent": true }
   ],
   "headers": [
     {
