@@ -3,7 +3,21 @@
   "framework": "vite",
   "buildCommand": "npm run build",
   "outputDirectory": "dist",
-  "rewrites": [
-    { "source": "/((?!assets/|robots.txt|sitemap.xml).*)", "destination": "/index.html" }
+  "cleanUrls": true,
+  "trailingSlash": false,
+  "redirects": [
+    { "source": "/products", "destination": "/product-knowledge", "permanent": true },
+    { "source": "/for-matt", "destination": "/product-knowledge", "permanent": true },
+    { "source": "/guest-post", "destination": "/product-knowledge", "permanent": true }
+  ],
+  "headers": [
+    {
+      "source": "/(.*)",
+      "headers": [
+        { "key": "X-Content-Type-Options", "value": "nosniff" },
+        { "key": "Referrer-Policy", "value": "strict-origin-when-cross-origin" },
+        { "key": "Permissions-Policy", "value": "camera=(), microphone=(), geolocation=()" }
+      ]
+    }
   ]
 }

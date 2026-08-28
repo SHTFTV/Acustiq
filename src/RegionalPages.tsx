@@ -25,7 +25,7 @@ export const regionalCities = [
   ['lower-mainland','Lower Mainland','Regional ceiling-system installation coverage connecting Metro Vancouver communities and the Fraser Valley.']
 ] as const;
 
-const photos=['/projects/linear-wood-feature-ceiling.webp','/projects/cloud-ceiling-finished.webp','/projects/cloud-ceiling-installation.webp'];
+const photos=['/projects/linear-wood-feature-ceiling.webp','/projects/cloud-ceiling-finished.webp','/projects/cloud-ceiling-installation-real.webp'];
 
 export function RegionalInstallerPage({slug}:{slug:string}){
  const city=regionalCities.find(x=>x[0]===slug); if(!city)return null; const [,name,intro]=city;
