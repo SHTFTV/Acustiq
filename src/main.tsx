@@ -8,8 +8,8 @@ import {SystemAuthorityPage,SystemsAuthorityIndex,authoritySystemSlugs} from './
 import {RegionalInstallerPage,regionalCities} from './RegionalPages.tsx';
 import './index.css';
 
-function Root(){
- const path=window.location.pathname.replace(/\/+$/,'')||'/';
+export function Root({pathOverride}:{pathOverride?:string}={}){
+ const path=pathOverride||(typeof window==='undefined'?'/':window.location.pathname.replace(/\/+$/,'')||'/');
  if(path==='/visualizer') return <VisualizerPage/>;
  if(path==='/product-knowledge') return <ProductKnowledgePage/>;
  if(path==='/systems') return <SystemsAuthorityIndex/>;
@@ -17,7 +17,7 @@ function Root(){
  if(systemSlug && authoritySystemSlugs.includes(systemSlug)) return <SystemAuthorityPage slug={systemSlug}/>;
  const match=path.match(/^\/installers\/([^/]+)$/); const slug=match?.[1];
  if(slug && regionalCities.some(city=>city[0]===slug)) return <RegionalInstallerPage slug={slug}/>;
- return <><App/><Enhancements/></>;
+ return <><App ssrPath={pathOverride}/>{!pathOverride&&<Enhancements/>}</>;
 }
 
-createRoot(document.getElementById('root')!).render(<StrictMode><Root/></StrictMode>);
+if(typeof document!=='undefined')createRoot(document.getElementById('root')!).render(<StrictMode><Root/></StrictMode>);
