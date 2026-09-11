@@ -1,0 +1,30 @@
+import React from 'react';
+import {ArrowRight, Building2, CheckCircle2, MapPin, PanelsTopLeft, Volume2} from 'lucide-react';
+
+const photos=[
+  ['/projects/837-beatty-tectum-panels-material.jpg','Tectum acoustic panels staged for installation beneath the linear wood ceiling at 837 Beatty Street'],
+  ['/projects/837-beatty-tectum-panel-layout.jpg','Beveled Tectum acoustic panels prepared and aligned for the Level 2 lobby installation'],
+  ['/projects/837-beatty-beveled-tectum-panels.jpg','Close view of the beveled edges and wood-fibre texture of the acoustic panels'],
+  ['/projects/837-beatty-acoustic-wall-installation.jpg','Rambo Walls and Ceilings installing vertical acoustic wall panels in the Vancouver lobby'],
+  ['/projects/837-beatty-acoustic-panel-detail.jpg','Detail of the acoustic panel joints, vertical layout and perimeter coordination'],
+  ['/projects/837-beatty-tectum-wall-progress.jpg','Tectum wall panel installation progressing along the Level 2 corridor'],
+  ['/projects/837-beatty-tectum-wall-finished.jpg','Completed field of beveled Tectum acoustic wall panels at 837 Beatty Street'],
+];
+
+function ProjectSchema(){const data={
+  '@context':'https://schema.org','@type':'Article',headline:'837 Beatty Street Beveled Tectum Acoustic Panel Installation',
+  description:'A documented Rambo Walls & Ceilings installation of beveled Tectum acoustic wall panels in the Level 2 lobby at 837 Beatty Street in Vancouver.',
+  url:'https://www.acustiq.ca/projects/837-beatty-tectum-acoustic-panels',
+  author:{'@type':'Organization',name:'ACUSTIQ',url:'https://www.acustiq.ca/'},
+  about:[{'@type':'Thing',name:'Tectum acoustic panels'},{'@type':'Thing',name:'Acoustic wall treatments'},{'@type':'Thing',name:'Commercial interior construction'}],
+  contentLocation:{'@type':'Place',name:'837 Beatty Street, Vancouver, British Columbia'},
+  image:photos.map(([src])=>`https://www.acustiq.ca${src}`),
+};return <script type="application/ld+json" dangerouslySetInnerHTML={{__html:JSON.stringify(data)}}/>}
+
+export default function ProjectPage(){return <div className="project-detail"><ProjectSchema/><header className="project-nav"><a href="/" className="brand">ACUSTIQ<span>.</span></a><nav><a href="/systems">Systems</a><a href="/technical-library">Technical Library</a><a href="/gallery">Gallery</a></nav><a href="/contractors" className="top-cta">Get Installation Pricing</a></header><main>
+  <section className="project-hero"><div className="project-hero-copy"><span>REAL INSTALLATION / VANCOUVER</span><h1>Beveled Tectum acoustic panels at 837 Beatty Street.</h1><p>A field-documented acoustic wall treatment installed by Rambo Walls & Ceilings in the Level 2 lobby. The project shows material preparation, layout, beveled panel joints, perimeter coordination and the completed vertical panel field.</p><div className="project-facts"><div><MapPin/><b>Vancouver, BC</b><small>837 Beatty Street · Level 2 lobby</small></div><div><Volume2/><b>Acoustic treatment</b><small>Beveled wood-fibre panels</small></div><div><Building2/><b>Commercial interior</b><small>Lobby and corridor application</small></div></div></div><img src={photos[6][0]} alt={photos[6][1]}/></section>
+  <section className="project-intro"><div><span>PROJECT OVERVIEW</span><h2>Texture, sound absorption and architectural rhythm in one finish.</h2></div><div><p>Tectum panels use a distinctive cementitious wood-fibre texture to add acoustic absorption and a durable architectural surface. In this installation, narrow beveled panels form a disciplined vertical rhythm along the lobby wall while complementing the exposed services, masonry and linear wood ceiling.</p><p>The photographs document the actual construction sequence rather than a product rendering. They show how panel dimensions, joint alignment, field cuts and edges affect the finished result—details that should be resolved before an acoustic panel system reaches the site.</p></div></section>
+  <section className="project-gallery" aria-label="837 Beatty Street Tectum installation photographs">{photos.map(([src,alt],i)=><figure className={i===0||i===6?'wide':''} key={src}><img src={src} alt={alt} loading={i<2?'eager':'lazy'}/><figcaption><b>{String(i+1).padStart(2,'0')}</b>{alt}</figcaption></figure>)}</section>
+  <section className="project-lessons"><div><span>FIELD NOTES</span><h2>What this installation illustrates.</h2></div><div className="project-points"><article><PanelsTopLeft/><h3>Layout is visible</h3><p>Repeated narrow panels make joint alignment and consistent module spacing part of the architecture. Establish the datum, panel sequence and end conditions before fixing the field.</p></article><article><CheckCircle2/><h3>Edges define the finish</h3><p>Beveled edges create shadow lines that make small alignment differences noticeable. Accurate cutting and consistent joints protect the intended rhythm.</p></article><article><Volume2/><h3>Acoustics meet interiors</h3><p>Absorptive panels can become a deliberate finish rather than a concealed technical layer. Product-specific acoustic performance must still be verified from current manufacturer documentation.</p></article></div></section>
+  <section className="project-credit"><div><span>PROJECT CREDIT</span><h2>Installed by Rambo Walls & Ceilings.</h2><p>ACUSTIQ presents this verified field photography as system education and installation evidence. Rambo Walls & Ceilings supplied the project photographs and completed the documented installation work.</p></div><div className="actions"><a href="/contractors" className="primary">Request installation pricing <ArrowRight size={18}/></a><a href="/systems/specialty" className="secondary light-secondary">Explore specialty ceiling systems</a><a href="/gallery" className="secondary light-secondary">Return to gallery</a></div></section>
+  </main><footer><b>ACUSTIQ.</b><span>Architectural Ceiling Systems & Acoustic Design</span><span>Canada · Ceiling knowledge, visualization and installation resources</span></footer></div>}

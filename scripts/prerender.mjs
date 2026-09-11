@@ -16,6 +16,8 @@ const baseMeta={
   '/technical-library':['Acoustic & Ceiling Technical Library','Practical Canadian guidance for acoustic ratings, suspended ceiling components, seismic fundamentals, estimating and service coordination.'],
   '/contractors':['Lower Mainland Ceiling Installation','Connect architectural ceiling research with experienced suspended, acoustic and specialty ceiling installation in the Lower Mainland.'],
   '/gallery':['Architectural Ceiling Project Gallery','View real Rambo Walls & Ceilings field and completed-project photography for suspended, wood and specialty ceiling assemblies.'],
+  '/projects/837-beatty-tectum-acoustic-panels':['837 Beatty Tectum Acoustic Panel Installation','See the real beveled Tectum acoustic wall panel installation by Rambo Walls & Ceilings at 837 Beatty Street in Vancouver, BC.'],
+  '/contractors/rambo-walls-ceilings':['Rambo Walls & Ceilings — Lower Mainland Contractor','Rambo Walls & Ceilings installs suspended T-bar, acoustic and specialty ceilings, steel stud framing and drywall across the Lower Mainland.'],
 };
 const esc=s=>s.replace(/&/g,'&amp;').replace(/"/g,'&quot;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
 function meta(url){
@@ -27,7 +29,7 @@ function meta(url){
 }
 for(const url of routes){
   const [title,description]=meta(url); const canonical=`${domain}${url==='/'?'/':url}`; const body=render(url);
-  const structured={"@context":"https://schema.org","@type":"WebPage",name:title,description,url:canonical,isPartOf:{"@type":"WebSite",name:'ACUSTIQ',url:`${domain}/`},inLanguage:'en-CA'};
+  const structured={"@context":"https://schema.org","@type":"WebPage",name:title,description,url:canonical,isPartOf:{"@type":"WebSite",name:'ACUSTIQ',url:`${domain}/`},inLanguage:'en-CA',breadcrumb:{"@type":"BreadcrumbList",itemListElement:[{"@type":"ListItem",position:1,name:'ACUSTIQ',item:`${domain}/`},...(url.startsWith('/projects/')?[{"@type":"ListItem",position:2,name:'Project Gallery',item:`${domain}/gallery`},{"@type":"ListItem",position:3,name:title,item:canonical}]:[])]}};
   let html=template.replace('<div id="root"></div>',`<div id="root">${body}</div>`)
     .replace(/<title>.*?<\/title>/,`<title>${esc(title)} | ACUSTIQ</title>`)
     .replace(/<meta name="description"[^>]*>/,`<meta name="description" content="${esc(description)}" />`)
