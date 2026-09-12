@@ -8,6 +8,7 @@ export const routes=[
   '/visualizer', '/product-knowledge', '/technical-library', '/contractors', '/gallery',
   '/projects/837-beatty-tectum-acoustic-panels',
   '/contractors/rambo-walls-ceilings',
+  '/gallery/rwc-projects',
   ...regionalCities.map(([slug])=>`/installers/${slug}`),
 ];
 
