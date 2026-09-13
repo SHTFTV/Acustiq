@@ -13,7 +13,8 @@ const acousticCeilingPhotos=[
   ['/projects/rwc-featured/microsoft-acoustic-clouds-vertical.jpg','Acoustic cloud ceiling installation shown across the open office interior at Microsoft'],
   ['/projects/rwc-featured/microsoft-acoustic-clouds-detail.jpg','Close view of suspended acoustic cloud panels and integrated linear lighting at Microsoft'],
   ['/projects/rwc-featured/suspended-wood-slat-ceiling.jpg','Suspended wood-slat feature ceiling installation supplied by Matt McKenzie'],
-  ['/projects/cloud-ceiling-installation-real.webp','Field installation of shaped acoustic ceiling clouds in a commercial interior'],
+  ['/projects/rwc-featured/southpoint-wood-slat-acoustic-ceiling.jpg','Wood-slat acoustic feature ceiling installation at Southpointe Academy'],
+  ['/projects/cloud-ceiling-installation-hires.webp','Field installation of shaped acoustic ceiling clouds in a commercial interior'],
   ['/projects/cloud-ceiling-finished.webp','Completed suspended acoustic cloud ceiling with integrated lighting'],
   ['/projects/linear-wood-feature-ceiling.webp','Completed linear wood feature ceiling installed over an open commercial space'],
 ];
