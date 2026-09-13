@@ -1,31 +1,64 @@
-import {ArrowRight, Building2, CheckCircle2, MapPin, PanelsTopLeft} from 'lucide-react';
+import {useEffect, useState} from 'react';
+import {Building2, ChevronLeft, ChevronRight, MapPin, PanelsTopLeft, X} from 'lucide-react';
+import {rwcArchivePhotos} from './RwcArchivePage';
 
-const acousticWallPhotos=[
-  ['/projects/837-beatty-acoustic-wall-installation.jpg','Rambo Walls and Ceilings installing vertical Tectum acoustic wall panels at 837 Beatty Street in Vancouver'],
-  ['/projects/837-beatty-acoustic-panel-detail.jpg','Close view of the vertical acoustic panel joints and perimeter coordination at 837 Beatty Street'],
-  ['/projects/837-beatty-tectum-wall-progress.jpg','Beveled Tectum acoustic wall panel installation progressing along the Level 2 lobby corridor'],
-  ['/projects/837-beatty-tectum-wall-finished.jpg','Completed field of beveled Tectum acoustic wall panels installed by Rambo Walls and Ceilings'],
+type GalleryPhoto={src:string; title?:string};
+
+const mattEmailPhotos:GalleryPhoto[]=[
+  {src:'/projects/rwc-featured/ilm-disney-acoustic-baffles.jpg',title:'ILM / Disney'},
+  {src:'/projects/rwc-featured/microsoft-acoustic-clouds-wide.jpg',title:'Microsoft'},
+  {src:'/projects/rwc-featured/microsoft-acoustic-clouds-vertical.jpg',title:'Microsoft'},
+  {src:'/projects/rwc-featured/microsoft-acoustic-clouds-detail.jpg',title:'Microsoft'},
+  {src:'/projects/rwc-featured/southpoint-wood-slat-acoustic-ceiling.jpg',title:'Southpointe Academy'},
+  {src:'/projects/rwc-featured/suspended-wood-slat-ceiling.jpg'},
 ];
 
-const acousticCeilingPhotos=[
-  ['/projects/rwc-featured/ilm-disney-acoustic-baffles.jpg','Suspended linear acoustic baffles installed by Rambo Walls and Ceilings at ILM'],
-  ['/projects/rwc-featured/microsoft-acoustic-clouds-wide.jpg','Large suspended acoustic ceiling clouds with integrated perimeter lighting at Microsoft'],
-  ['/projects/rwc-featured/microsoft-acoustic-clouds-vertical.jpg','Acoustic cloud ceiling installation shown across the open office interior at Microsoft'],
-  ['/projects/rwc-featured/microsoft-acoustic-clouds-detail.jpg','Close view of suspended acoustic cloud panels and integrated linear lighting at Microsoft'],
-  ['/projects/rwc-featured/suspended-wood-slat-ceiling.jpg','Suspended wood-slat feature ceiling installation supplied by Matt McKenzie'],
-  ['/projects/rwc-featured/southpoint-wood-slat-acoustic-ceiling.jpg','Wood-slat acoustic feature ceiling installation at Southpointe Academy'],
-  ['/projects/cloud-ceiling-installation-hires.webp','Field installation of shaped acoustic ceiling clouds in a commercial interior'],
-  ['/projects/cloud-ceiling-finished.webp','Completed suspended acoustic cloud ceiling with integrated lighting'],
-  ['/projects/linear-wood-feature-ceiling.webp','Completed linear wood feature ceiling installed over an open commercial space'],
+const beattyPhotos:GalleryPhoto[]=[
+  {src:'/projects/837-beatty-tectum-panels-material.jpg',title:'837 Beatty Street'},
+  {src:'/projects/837-beatty-tectum-panel-layout.jpg',title:'837 Beatty Street'},
+  {src:'/projects/837-beatty-beveled-tectum-panels.jpg',title:'837 Beatty Street'},
+  {src:'/projects/837-beatty-acoustic-wall-installation.jpg',title:'837 Beatty Street'},
+  {src:'/projects/837-beatty-acoustic-panel-detail.jpg',title:'837 Beatty Street'},
+  {src:'/projects/837-beatty-tectum-wall-progress.jpg',title:'837 Beatty Street'},
+  {src:'/projects/837-beatty-tectum-wall-finished.jpg',title:'837 Beatty Street'},
 ];
 
-export default function RamboPage(){const schema={'@context':'https://schema.org','@type':'ProfessionalService',name:'Rambo Walls & Ceilings',url:'https://www.acustiq.ca/contractors/rambo-walls-ceilings',sameAs:['https://rambowalls.com'],areaServed:{'@type':'AdministrativeArea',name:'Lower Mainland, British Columbia'},knowsAbout:['Suspended T-bar ceilings','Acoustic wall panel installation','Acoustic ceiling clouds','Acoustic baffles','Specialty ceilings','Steel stud framing','Drywall'],subjectOf:[...acousticWallPhotos,...acousticCeilingPhotos].map(([src,caption])=>({'@type':'ImageObject',contentUrl:`https://www.acustiq.ca${src}`,caption,creator:{'@type':'Organization',name:'Rambo Walls & Ceilings'}}))};return <div className="project-detail"><script type="application/ld+json" dangerouslySetInnerHTML={{__html:JSON.stringify(schema)}}/><header className="project-nav"><a href="/" className="brand">ACUSTIQ<span>.</span></a><nav><a href="/systems">Systems</a><a href="/gallery">Gallery</a><a href="/technical-library">Technical Library</a></nav><a href="https://rambowalls.com" className="top-cta" target="_blank" rel="noopener noreferrer">Contact Rambo</a></header><main>
-  <section className="project-hero"><div className="project-hero-copy"><span>FEATURED CONTRACTOR / LOWER MAINLAND</span><h1>Rambo Walls &amp; Ceilings.</h1><p>A regional installation contractor for commercial suspended ceilings, acoustic treatments, specialty ceiling features, steel stud framing and drywall. ACUSTIQ’s Rambo profile connects practical system research with real field work and documented projects.</p><div className="project-facts"><div><MapPin/><b>Lower Mainland, BC</b><small>Regional commercial installation</small></div><div><PanelsTopLeft/><b>Ceiling systems</b><small>T-bar, acoustic and specialty work</small></div><div><Building2/><b>Interior construction</b><small>Steel stud framing and drywall</small></div></div></div><img src="/projects/linear-wood-feature-ceiling.webp" alt="Architectural ceiling project completed by Rambo Walls and Ceilings"/></section>
-  <section className="project-intro"><div><span>INSTALLATION CAPABILITIES</span><h2>Ceiling and wall assemblies carried through to the field.</h2></div><div><p>Rambo Walls &amp; Ceilings works across the Lower Mainland on ceiling and interior construction scopes. Typical work includes suspended T-bar ceilings, architectural and acoustic treatments, specialty ceiling features, steel stud framing and drywall coordination.</p><p>Project requirements, product suitability, availability and pricing should be confirmed directly for each site. ACUSTIQ provides the system education and documented field evidence; Rambo provides the installation pathway.</p></div></section>
-  <section className="project-lessons"><div><span>FIELD CAPABILITY</span><h2>What the project record demonstrates.</h2></div><div className="project-points"><article><CheckCircle2/><h3>Documented installations</h3><p>Real construction photography shows material handling, layout, interfaces and completed work—not generic stock imagery.</p></article><article><PanelsTopLeft/><h3>Multiple ceiling families</h3><p>The portfolio includes acoustic panels, suspended systems, architectural features and coordinated interior assemblies.</p></article><article><MapPin/><h3>Regional delivery</h3><p>Lower Mainland coverage creates a direct route from ceiling-system research to site review and installation pricing.</p></article></div></section>
-  <section className="project-intro rwc-wall-intro"><div><span>ACOUSTIC WALL INSTALLATION / VANCOUVER</span><h2>Rambo-installed acoustic wall panels at 837 Beatty Street.</h2></div><div><p>These field photographs show the verified Level 2 lobby installation: vertical beveled Tectum panels, joint alignment, perimeter coordination and the completed acoustic wall surface.</p><a href="/projects/837-beatty-tectum-acoustic-panels" className="text-link">See the complete seven-photo case study <ArrowRight size={16}/></a></div></section>
-  <section className="project-gallery rwc-wall-gallery" aria-label="Rambo Walls and Ceilings acoustic wall installations">{acousticWallPhotos.map(([src,caption],i)=><figure className={i===0||i===3?'wide':''} key={src}><img src={src} alt={caption} loading={i<2?'eager':'lazy'}/><figcaption><b>{String(i+1).padStart(2,'0')}</b>{caption}</figcaption></figure>)}</section>
-  <section className="project-intro rwc-wall-intro"><div><span>ACOUSTIC CLOUDS, BAFFLES &amp; FEATURE CEILINGS</span><h2>Matt’s designated acoustic ceiling projects.</h2></div><div><p>Recovered from Matt McKenzie’s August photo thread, this gallery includes the ILM suspended-baffle installation, Microsoft acoustic clouds and additional cloud and wood-feature ceiling work.</p><p>Only the project identities Matt supplied are named. Unconfirmed locations remain intentionally omitted.</p></div></section>
-  <section className="project-gallery rwc-ceiling-gallery" aria-label="Rambo Walls and Ceilings acoustic cloud and specialty ceiling projects">{acousticCeilingPhotos.map(([src,caption],i)=><figure className={i===0||i===3||i===7?'wide':''} key={src}><img src={src} alt={caption} loading="lazy"/><figcaption><b>{String(i+1).padStart(2,'0')}</b>{caption}</figcaption></figure>)}</section>
-  <section className="project-credit"><div><span>FEATURED PROJECT</span><h2>837 Beatty Street beveled Tectum panels.</h2><p>Seven photographs document the Level 2 lobby installation from staged material and layout through detailed joints and the completed acoustic wall.</p></div><div className="actions"><a href="/projects/837-beatty-tectum-acoustic-panels" className="primary">View the case study <ArrowRight size={18}/></a><a href="/gallery/rwc-projects" className="secondary light-secondary">View all RWC projects</a><a href="https://rambowalls.com" className="secondary light-secondary" target="_blank" rel="noopener noreferrer">Visit RamboWalls.com</a></div></section>
-  </main><footer><b>ACUSTIQ.</b><span>Architectural Ceiling Systems &amp; Acoustic Design</span><span>Canada · Ceiling knowledge, visualization and installation resources</span></footer></div>}
+const steelStudAcousticPhotos:GalleryPhoto[]=[
+  {src:'/projects/cloud-ceiling-installation-hires.webp'},
+  {src:'/projects/cloud-ceiling-finished.webp'},
+  {src:'/projects/linear-wood-feature-ceiling.webp'},
+];
+
+const galleryPhotos:GalleryPhoto[]=[
+  ...mattEmailPhotos,
+  ...beattyPhotos,
+  ...rwcArchivePhotos.map(({src})=>({src})),
+  ...steelStudAcousticPhotos,
+];
+
+export default function RamboPage(){
+ const [openIndex,setOpenIndex]=useState<number|null>(null);
+ const openPhoto=openIndex===null?null:galleryPhotos[openIndex];
+ useEffect(()=>{
+  if(openIndex===null)return;
+  const previous=document.body.style.overflow;
+  document.body.style.overflow='hidden';
+  const onKey=(event:KeyboardEvent)=>{
+   if(event.key==='Escape')setOpenIndex(null);
+   if(event.key==='ArrowLeft')setOpenIndex(current=>current===null?null:(current-1+galleryPhotos.length)%galleryPhotos.length);
+   if(event.key==='ArrowRight')setOpenIndex(current=>current===null?null:(current+1)%galleryPhotos.length);
+  };
+  window.addEventListener('keydown',onKey);
+  return()=>{document.body.style.overflow=previous;window.removeEventListener('keydown',onKey)};
+ },[openIndex]);
+
+ const schema={'@context':'https://schema.org','@type':'ProfessionalService',name:'Rambo Walls & Ceilings',url:'https://www.acustiq.ca/contractors/rambo-walls-ceilings',sameAs:['https://rambowalls.com'],areaServed:{'@type':'AdministrativeArea',name:'Lower Mainland, British Columbia'},knowsAbout:['Suspended T-bar ceilings','Acoustic wall panels','Acoustic ceiling clouds','Acoustic baffles','Specialty ceilings','Steel stud framing','Drywall'],subjectOf:galleryPhotos.map(photo=>({'@type':'ImageObject',contentUrl:`https://www.acustiq.ca${photo.src}`,...(photo.title?{name:photo.title}:{})}))};
+
+ return <div className="project-detail"><script type="application/ld+json" dangerouslySetInnerHTML={{__html:JSON.stringify(schema)}}/><header className="project-nav"><a href="/" className="brand">ACUSTIQ<span>.</span></a><nav><a href="/systems">Systems</a><a href="/gallery">Gallery</a><a href="/technical-library">Technical Library</a></nav><a href="https://rambowalls.com" className="top-cta" target="_blank" rel="noopener noreferrer">Contact Rambo</a></header><main>
+  <section className="project-hero"><div className="project-hero-copy"><span>FEATURED CONTRACTOR / LOWER MAINLAND</span><h1>Rambo Walls &amp; Ceilings.</h1><p>Commercial ceilings, acoustic treatments, steel stud framing and drywall.</p><div className="project-facts"><div><MapPin/><b>Lower Mainland, BC</b></div><div><PanelsTopLeft/><b>Ceiling systems</b></div><div><Building2/><b>Interior construction</b></div></div></div><img src="/projects/rwc-featured/ilm-disney-acoustic-baffles.jpg" alt="Rambo Walls and Ceilings project"/></section>
+  <section className="rwc-simple-gallery-heading"><span>PROJECT PHOTOS</span><h2>RWC gallery.</h2></section>
+  <section className="rwc-simple-gallery" aria-label="Rambo Walls and Ceilings photo gallery">{galleryPhotos.map((photo,index)=><button type="button" className="rwc-gallery-item" key={`${photo.src}-${index}`} onClick={()=>setOpenIndex(index)} aria-label={`Open RWC project photo ${index+1}`}><img src={photo.src} alt={photo.title||`RWC project photo ${index+1}`} loading={index<10?'eager':'lazy'}/></button>)}</section>
+ </main>
+ {openPhoto&&<div className="rwc-lightbox" role="dialog" aria-modal="true" aria-label="RWC project photo" onClick={()=>setOpenIndex(null)}><button type="button" className="rwc-lightbox-close" onClick={()=>setOpenIndex(null)} aria-label="Close photo"><X/></button><button type="button" className="rwc-lightbox-nav previous" onClick={event=>{event.stopPropagation();setOpenIndex((openIndex!-1+galleryPhotos.length)%galleryPhotos.length)}} aria-label="Previous photo"><ChevronLeft/></button><figure onClick={event=>event.stopPropagation()}><img src={openPhoto.src} alt={openPhoto.title||'RWC project photo'}/><figcaption><span>{openIndex!+1} / {galleryPhotos.length}</span>{openPhoto.title&&<b>{openPhoto.title}</b>}</figcaption></figure><button type="button" className="rwc-lightbox-nav next" onClick={event=>{event.stopPropagation();setOpenIndex((openIndex!+1)%galleryPhotos.length)}} aria-label="Next photo"><ChevronRight/></button></div>}
+ <footer><b>ACUSTIQ.</b><span>Rambo Walls &amp; Ceilings project gallery</span><span>Canada</span></footer></div>;
+}

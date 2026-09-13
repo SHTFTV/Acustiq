@@ -1,6 +1,6 @@
 import {ArrowRight, MapPin, PanelsTopLeft} from 'lucide-react';
 
-const photos=[
+export const rwcArchivePhotos=[
   {src:"/projects/rwc-archive/20160817_235638.jpg",alt:"Rambo Walls and Ceilings project archive photograph 01"},
   {src:"/projects/rwc-archive/20160817_235654.jpg",alt:"Rambo Walls and Ceilings project archive photograph 02"},
   {src:"/projects/rwc-archive/20190805_154522.jpg",alt:"Rambo Walls and Ceilings project archive photograph 03"},
@@ -47,11 +47,10 @@ const photos=[
 ];
 
 export default function RwcArchivePage(){
- const schema={'@context':'https://schema.org','@type':'CollectionPage',name:'RWC Projects — Rambo Walls & Ceilings Project Archive',url:'https://www.acustiq.ca/gallery/rwc-projects',about:['Acoustic ceilings','Suspended ceilings','Architectural ceiling systems','Acoustic wall panels'],isPartOf:{'@type':'WebSite',name:'ACUSTIQ',url:'https://www.acustiq.ca/'},associatedMedia:photos.map(photo=>({'@type':'ImageObject',contentUrl:`https://www.acustiq.ca${photo.src}`,creator:{'@type':'Organization',name:'Rambo Walls & Ceilings'}}))};
+ const schema={'@context':'https://schema.org','@type':'CollectionPage',name:'RWC Projects — Rambo Walls & Ceilings Project Archive',url:'https://www.acustiq.ca/gallery/rwc-projects',about:['Acoustic ceilings','Suspended ceilings','Architectural ceiling systems','Acoustic wall panels'],isPartOf:{'@type':'WebSite',name:'ACUSTIQ',url:'https://www.acustiq.ca/'},associatedMedia:rwcArchivePhotos.map(photo=>({'@type':'ImageObject',contentUrl:`https://www.acustiq.ca${photo.src}`,creator:{'@type':'Organization',name:'Rambo Walls & Ceilings'}}))};
  return <div className="project-detail"><script type="application/ld+json" dangerouslySetInnerHTML={{__html:JSON.stringify(schema)}}/><header className="project-nav"><a href="/" className="brand">ACUSTIQ<span>.</span></a><nav><a href="/systems">Systems</a><a href="/gallery">Gallery</a><a href="/technical-library">Technical Library</a></nav><a href="/contractors/rambo-walls-ceilings" className="top-cta">Rambo contractor profile</a></header><main>
  <section className="pagehero rwc-archive-hero"><span>RWC PROJECTS / VERIFIED FIELD PHOTOGRAPHY</span><h1>Rambo Walls &amp; Ceilings project archive.</h1><p>Forty-three original construction photographs supplied by Matt McKenzie document real ceiling, acoustic-panel and commercial interior work completed over multiple years. Project locations and system details remain intentionally unassigned unless confirmed by the source.</p><div className="actions"><a className="primary" href="/contractors/rambo-walls-ceilings">View contractor profile <ArrowRight size={18}/></a><a className="secondary" href="/projects/837-beatty-tectum-acoustic-panels">837 Beatty case study</a></div></section>
  <section className="rwc-note"><PanelsTopLeft/><div><b>Evidence first</b><p>These are contractor-supplied project photographs, not stock imagery. Missing project names, locations and specifications will be added only after confirmation.</p></div><MapPin/><div><b>Map pins pending</b><p>Location schema and public-safe map pins will be added project by project after the city or address is verified.</p></div></section>
- <section className="project-gallery rwc-master-gallery" aria-label="Rambo Walls and Ceilings project archive">{photos.map((photo,i)=><figure key={photo.src}><img src={photo.src} alt={photo.alt} loading={i<4?'eager':'lazy'}/><figcaption><b>{String(i+1).padStart(2,'0')}</b><span>RWC project photograph</span><small>Location and project details pending confirmation</small></figcaption></figure>)}</section>
+ <section className="project-gallery rwc-master-gallery" aria-label="Rambo Walls and Ceilings project archive">{rwcArchivePhotos.map((photo,i)=><figure key={photo.src}><img src={photo.src} alt={photo.alt} loading={i<4?'eager':'lazy'}/><figcaption><b>{String(i+1).padStart(2,'0')}</b><span>RWC project photograph</span><small>Location and project details pending confirmation</small></figcaption></figure>)}</section>
  </main><footer><b>ACUSTIQ.</b><span>RWC Projects · Rambo Walls &amp; Ceilings field archive</span><span>Canada · Ceiling knowledge, visualization and installation resources</span></footer></div>;
 }
-
