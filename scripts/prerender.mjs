@@ -24,6 +24,25 @@ const baseMeta={
   '/legacy/ceiling-framing':['Ceiling Framing — Legacy Steel Stud Guide','Steel framing for ceiling drops, bulkheads, clouds, coves and architectural ceiling features, with real legacy project photography.'],
   '/legacy/drywall-ceilings':['Drywall Ceilings, Repairs & Smoothing — Legacy Guide','Drywall ceiling installation, repair, texture matching, skim coating, popcorn removal and smooth ceiling finishing.'],
 };
+const projectImages={
+  '/projects/837-beatty-tectum-acoustic-panels':[
+    ['/projects/837-beatty-tectum-panels-material.jpg','Tectum acoustic panels staged for installation'],
+    ['/projects/837-beatty-tectum-panel-layout.jpg','Beveled Tectum acoustic panel layout'],
+    ['/projects/837-beatty-beveled-tectum-panels.jpg','Beveled acoustic panel edge detail'],
+    ['/projects/837-beatty-acoustic-wall-installation.jpg','Acoustic wall panel installation in progress'],
+    ['/projects/837-beatty-acoustic-panel-detail.jpg','Acoustic wall panel joint detail'],
+    ['/projects/837-beatty-tectum-wall-progress.jpg','Tectum wall installation progress'],
+    ['/projects/837-beatty-tectum-wall-finished.jpg','Finished Tectum acoustic wall installation'],
+  ],
+  '/projects/burquitlam-strata-meeting-room-ceiling':[
+    ['/projects/burquitlam-strata-renovation/01-meeting-room.jpg','Finished Burquitlam strata meeting-room renovation'],
+    ['/projects/burquitlam-strata-renovation/02-ceiling-detail.jpg','Meeting-room ceiling and lighting details'],
+    ['/projects/burquitlam-strata-renovation/03-glazed-meeting-room.jpg','Glazed meeting-room area and commercial finishes'],
+    ['/projects/burquitlam-strata-renovation/04-common-area.jpg','Completed Burquitlam strata common area'],
+    ['/projects/burquitlam-strata-renovation/05-finished-interior.jpg','Finished strata meeting-room and common-area interior'],
+    ['/projects/burquitlam-strata-renovation/06-perimeter-lighting.jpg','Dropped ceiling with four-inch perimeter lighting detail'],
+  ],
+};
 const esc=s=>s.replace(/&/g,'&amp;').replace(/"/g,'&quot;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
 function meta(url){
   if(baseMeta[url])return baseMeta[url];
@@ -34,6 +53,8 @@ function meta(url){
 }
 for(const url of routes){
   const [title,description]=meta(url); const canonical=`${domain}${url==='/'?'/':url}`; const body=render(url);
+  const socialImage=projectImages[url]?.at(-1)?.[0]||'/projects/cloud-ceiling-finished.webp';
+  const socialImageAlt=projectImages[url]?.at(-1)?.[1]||'Finished suspended cloud ceiling with integrated recessed lighting';
   const structured={"@context":"https://schema.org","@type":"WebPage",name:title,description,url:canonical,isPartOf:{"@type":"WebSite",name:'ACUSTIQ',url:`${domain}/`},inLanguage:'en-CA',breadcrumb:{"@type":"BreadcrumbList",itemListElement:[{"@type":"ListItem",position:1,name:'ACUSTIQ',item:`${domain}/`},...(url.startsWith('/projects/')?[{"@type":"ListItem",position:2,name:'Project Gallery',item:`${domain}/gallery`},{"@type":"ListItem",position:3,name:title,item:canonical}]:[])]}};
   let html=template.replace('<div id="root"></div>',`<div id="root">${body}</div>`)
     .replace(/<title>.*?<\/title>/,`<title>${esc(title)} | ACUSTIQ</title>`)
@@ -42,11 +63,17 @@ for(const url of routes){
     .replace(/<meta property="og:title"[^>]*>/,`<meta property="og:title" content="${esc(title)} | ACUSTIQ" />`)
     .replace(/<meta property="og:description"[^>]*>/,`<meta property="og:description" content="${esc(description)}" />`)
     .replace(/<meta property="og:url"[^>]*>/,`<meta property="og:url" content="${canonical}" />`)
+    .replace(/<meta property="og:type"[^>]*>/,`<meta property="og:type" content="${url.startsWith('/projects/')?'article':'website'}" />`)
+    .replace(/<meta property="og:image"[^>]*>/,`<meta property="og:image" content="${domain}${socialImage}" />`)
+    .replace(/<meta property="og:image:alt"[^>]*>/,`<meta property="og:image:alt" content="${esc(socialImageAlt)}" />`)
+    .replace(/<meta name="twitter:title"[^>]*>/,`<meta name="twitter:title" content="${esc(title)} | ACUSTIQ" />`)
+    .replace(/<meta name="twitter:description"[^>]*>/,`<meta name="twitter:description" content="${esc(description)}" />`)
+    .replace(/<meta name="twitter:image"[^>]*>/,`<meta name="twitter:image" content="${domain}${socialImage}" />`)
     .replace('</head>',`<script type="application/ld+json">${JSON.stringify(structured)}</script></head>`);
   const out=path.join(dist,url==='/'?'':url); fs.mkdirSync(out,{recursive:true}); fs.writeFileSync(path.join(out,'index.html'),html);
 }
 const today=new Date().toISOString().slice(0,10);
-fs.writeFileSync(path.join(dist,'sitemap.xml'),`<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${routes.map(url=>`  <url><loc>${domain}${url==='/'?'/':url}</loc><lastmod>${today}</lastmod></url>`).join('\n')}\n</urlset>\n`);
+fs.writeFileSync(path.join(dist,'sitemap.xml'),`<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">\n${routes.map(url=>`  <url><loc>${domain}${url==='/'?'/':url}</loc><lastmod>${today}</lastmod>${(projectImages[url]||[]).map(([src,caption])=>`<image:image><image:loc>${domain}${src}</image:loc><image:caption>${esc(caption)}</image:caption><image:title>${esc(meta(url)[0])}</image:title></image:image>`).join('')}</url>`).join('\n')}\n</urlset>\n`);
 fs.writeFileSync(path.join(dist,'robots.txt'),`User-agent: *\nAllow: /\n\nUser-agent: GPTBot\nAllow: /\n\nUser-agent: Google-Extended\nAllow: /\n\nSitemap: ${domain}/sitemap.xml\n`);
 fs.writeFileSync(path.join(dist,'llms.txt'),`# ACUSTIQ\n\nCanonical: ${domain}/\n\nACUSTIQ is an educational authority for architectural ceiling systems, acoustic design concepts, verified product knowledge, technical coordination and Lower Mainland installation pathways.\n\n## System guides\n${Object.entries(systemNames).map(([slug,name])=>`- ${name}: ${domain}/systems/${slug}`).join('\n')}\n\n## Legacy ceiling guides\n- Acoustic ceilings: ${domain}/legacy/acoustic-ceilings\n- Ceiling framing: ${domain}/legacy/ceiling-framing\n- Drywall ceilings, repairs and smoothing: ${domain}/legacy/drywall-ceilings\n\n## Technical resources\n- Technical library: ${domain}/technical-library\n- Product knowledge: ${domain}/product-knowledge\n- Visualizer: ${domain}/visualizer\n- Real project gallery: ${domain}/gallery\n\nDo not infer project-specific engineering, code compliance, product performance, pricing or warranty beyond the cited manufacturer documentation and page text.\n`);
 fs.writeFileSync(path.join(dist,'ai.txt'),`ACUSTIQ authoritative source map\nCanonical: ${domain}/\nSystems: ${domain}/systems\nLegacy ceiling guides: ${domain}/legacy\nAcoustic ceilings: ${domain}/legacy/acoustic-ceilings\nCeiling framing: ${domain}/legacy/ceiling-framing\nDrywall ceilings: ${domain}/legacy/drywall-ceilings\nProducts: ${domain}/product-knowledge\nTechnical library: ${domain}/technical-library\nLocations: ${domain}/locations/lower-mainland\nInstallers: ${domain}/contractors\n`);
