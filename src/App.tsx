@@ -681,6 +681,33 @@ function Gallery() {
       </div>
       <div className="gallery-grid">
         <A
+          to="/projects/burquitlam-strata-meeting-room-ceiling"
+          className="gallery-project gallery-feature project-card-link"
+        >
+          <div className="gallery-image">
+            <img
+              src="/projects/burquitlam-strata-renovation/06-perimeter-lighting.jpg"
+              alt="Dropped ceiling with four-inch perimeter lighting detail in a Burquitlam strata meeting room"
+            />
+            <span>STEELSTUD.CA / DOCUMENTED STRATA PROJECT</span>
+          </div>
+          <div className="gallery-copy">
+            <h2>Burquitlam Meeting-Room Ceiling</h2>
+            <p>
+              A six-photo record of a strata meeting-room renovation with a
+              dropped T-bar ceiling and wall-side perimeter lighting detail.
+            </p>
+            <b className="gallery-link">
+              View documented project <ArrowRight size={16} />
+            </b>
+            <div className="chips">
+              <b>REAL PROJECT</b>
+              <b>DROPPED CEILING</b>
+              <b>BURQUITLAM</b>
+            </div>
+          </div>
+        </A>
+        <A
           to="/projects/837-beatty-tectum-acoustic-panels"
           className="gallery-project gallery-feature project-card-link"
         >

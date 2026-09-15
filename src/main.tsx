@@ -11,6 +11,7 @@ import {
 } from "./SystemAuthority.tsx";
 import { RegionalInstallerPage, regionalCities } from "./RegionalPages.tsx";
 import ProjectPage from "./ProjectPage.tsx";
+import BurquitlamProjectPage from "./BurquitlamProjectPage.tsx";
 import RamboPage from "./RamboPage.tsx";
 import RwcArchivePage from "./RwcArchivePage.tsx";
 import {
@@ -32,6 +33,8 @@ export function Root({ pathOverride }: { pathOverride?: string } = {}) {
   if (path === "/systems") return <SystemsAuthorityIndex />;
   if (path === "/projects/837-beatty-tectum-acoustic-panels")
     return <ProjectPage />;
+  if (path === "/projects/burquitlam-strata-meeting-room-ceiling")
+    return <BurquitlamProjectPage />;
   if (path === "/contractors/rambo-walls-ceilings") return <RamboPage />;
   if (path === "/gallery/rwc-projects") return <RwcArchivePage />;
   if (path === "/legacy") return <LegacyIndexPage />;

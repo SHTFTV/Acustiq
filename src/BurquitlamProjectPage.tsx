@@ -1,0 +1,29 @@
+import React from 'react';
+import {ArrowRight, Building2, Lightbulb, MapPin, PanelsTopLeft} from 'lucide-react';
+
+const photos=[
+  ['/projects/burquitlam-strata-renovation/01-meeting-room.jpg','Finished meeting-room area in the Burquitlam strata renovation'],
+  ['/projects/burquitlam-strata-renovation/02-ceiling-detail.jpg','Ceiling and lighting details in the renovated strata meeting room'],
+  ['/projects/burquitlam-strata-renovation/03-glazed-meeting-room.jpg','Glazed meeting-room area and coordinated commercial finishes'],
+  ['/projects/burquitlam-strata-renovation/04-common-area.jpg','Completed common-area interior near Lougheed Mall'],
+  ['/projects/burquitlam-strata-renovation/05-finished-interior.jpg','Finished strata meeting-room and common-area renovation'],
+  ['/projects/burquitlam-strata-renovation/06-perimeter-lighting.jpg','Dropped ceiling with a four-inch perimeter lighting detail against the wall'],
+];
+
+function ProjectSchema(){const data={
+  '@context':'https://schema.org','@type':'Article',headline:'Burquitlam Strata Meeting-Room Ceiling and Perimeter Lighting',
+  description:'A documented Burquitlam strata renovation near Lougheed Mall with a dropped T-bar ceiling and four-inch perimeter lighting detail.',
+  url:'https://www.acustiq.ca/projects/burquitlam-strata-meeting-room-ceiling',
+  author:{'@type':'Organization',name:'ACUSTIQ',url:'https://www.acustiq.ca/'},
+  about:[{'@type':'Thing',name:'Dropped T-bar ceiling'},{'@type':'Thing',name:'Perimeter lighting detail'},{'@type':'Thing',name:'Strata common-area renovation'}],
+  contentLocation:{'@type':'Place',name:'Burquitlam near Lougheed Mall, British Columbia'},
+  image:photos.map(([src])=>`https://www.acustiq.ca${src}`),
+};return <script type="application/ld+json" dangerouslySetInnerHTML={{__html:JSON.stringify(data)}}/>}
+
+export default function BurquitlamProjectPage(){return <div className="project-detail"><ProjectSchema/><header className="project-nav"><a href="/" className="brand">ACUSTIQ<span>.</span></a><nav><a href="/systems">Systems</a><a href="/technical-library">Technical Library</a><a href="/gallery">Gallery</a></nav><a href="/systems/suspended-tbar" className="top-cta">T-bar ceiling guide</a></header><main>
+  <section className="project-hero"><div className="project-hero-copy"><span>REAL INSTALLATION / BURQUITLAM</span><h1>A ceiling and lighting detail that reshaped a strata meeting room.</h1><p>This renovation near Lougheed Mall updated a strata meeting room with a dropped ceiling from the T-bar plane and a four-inch perimeter detail against the wall for the lighting effect. The same project included hallway framing for a three-stall commercial washroom and an exterior vestibule.</p><div className="project-facts"><div><MapPin/><b>Burquitlam, BC</b><small>Burnaby side · near Lougheed Mall</small></div><div><PanelsTopLeft/><b>Dropped ceiling</b><small>T-bar and perimeter detail</small></div><div><Lightbulb/><b>Integrated lighting</b><small>Four-inch wall-side feature</small></div></div></div><img src={photos[5][0]} alt={photos[5][1]}/></section>
+  <section className="project-intro"><div><span>CEILING CASE STUDY</span><h2>The ceiling is part of the room, not an afterthought.</h2></div><div><p>The project used the ceiling elevation and the light at the wall to give the meeting room a deliberate edge condition. That requires the T-bar plane, the drop, the lighting clearance and the finished wall relationship to be planned together.</p><p>These are recovered photographs from the original SteelStud.ca portfolio, now matched to the verified project information supplied by the contractor. The exact strata address is intentionally not published.</p></div></section>
+  <section className="project-gallery" aria-label="Burquitlam strata meeting-room renovation photographs">{photos.map(([src,alt],i)=><figure className={i===0||i===5?'wide':''} key={src}><a href={src}><img src={src} alt={alt} loading={i<2?'eager':'lazy'}/></a><figcaption><b>{String(i+1).padStart(2,'0')}</b>{alt}</figcaption></figure>)}</section>
+  <section className="project-lessons"><div><span>CEILING COORDINATION</span><h2>What the documented work shows.</h2></div><div className="project-points"><article><PanelsTopLeft/><h3>Set the ceiling plane first</h3><p>The suspended grid, drop and perimeter condition need one shared datum so the finished feature reads as intentional.</p></article><article><Lightbulb/><h3>Protect the lighting reveal</h3><p>The four-inch wall-side detail depends on clearances and a consistent edge. Framing, services and finish work must preserve that line.</p></article><article><Building2/><h3>Coordinate the whole renovation</h3><p>The ceiling work belonged to a larger strata common-area scope that also created the washroom stalls and outside vestibule.</p></article></div></section>
+  <section className="project-credit"><div><span>RELATED PROJECT RECORDS</span><h2>One real project, documented for each relevant scope.</h2><p>The complete construction record and six-photo gallery are on SteelStud.ca. Strata Property Services covers the owner and common-area planning side of the same renovation.</p></div><div className="actions"><a href="https://www.steelstud.ca/projects/burquitlam-strata-meeting-room-renovation" className="primary">View the SteelStud.ca build record <ArrowRight size={18}/></a><a href="https://stratapropertyservices.com/blog/burquitlam-strata-common-area-renovation" className="secondary light-secondary">Read the strata renovation record</a><a href="/systems/suspended-tbar" className="secondary light-secondary">Suspended T-bar guide</a></div></section>
+  </main><footer><b>ACUSTIQ.</b><span>Architectural Ceiling Systems & Acoustic Design</span><span>Canada · Ceiling knowledge, visualization and installation resources</span></footer></div>}

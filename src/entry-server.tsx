@@ -14,6 +14,7 @@ export const routes = [
   "/contractors",
   "/gallery",
   "/projects/837-beatty-tectum-acoustic-panels",
+  "/projects/burquitlam-strata-meeting-room-ceiling",
   "/contractors/rambo-walls-ceilings",
   "/gallery/rwc-projects",
   "/legacy",

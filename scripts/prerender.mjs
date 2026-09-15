@@ -17,6 +17,7 @@ const baseMeta={
   '/contractors':['Lower Mainland Ceiling Installation','Connect architectural ceiling research with experienced suspended, acoustic and specialty ceiling installation in the Lower Mainland.'],
   '/gallery':['Architectural Ceiling Project Gallery','View real Rambo Walls & Ceilings field and completed-project photography for suspended, wood and specialty ceiling assemblies.'],
   '/projects/837-beatty-tectum-acoustic-panels':['837 Beatty Tectum Acoustic Panel Installation','See the real beveled Tectum acoustic wall panel installation by Rambo Walls & Ceilings at 837 Beatty Street in Vancouver, BC.'],
+  '/projects/burquitlam-strata-meeting-room-ceiling':['Burquitlam Strata Meeting-Room Ceiling','Real Burquitlam strata renovation near Lougheed Mall with a dropped T-bar ceiling, four-inch perimeter lighting detail and coordinated interior work.'],
   '/contractors/rambo-walls-ceilings':['Rambo Walls & Ceilings — Lower Mainland Contractor','Rambo Walls & Ceilings installs suspended T-bar, acoustic and specialty ceilings, steel stud framing and drywall across the Lower Mainland.'],
   '/legacy':['Legacy Ceiling Guides — Acoustic Ceilings, Framing & Drywall','Restored SteelStud.ca trade knowledge covering acoustic ceilings, ceiling framing, drywall ceilings, repairs and smoothing with real project photography.'],
   '/legacy/acoustic-ceilings':['Acoustic Ceilings — Legacy Trade Guide','A substantial guide to T-bar, clouds, baffles, panels, linear acoustic ceilings, ratings, coordination and real installations.'],
