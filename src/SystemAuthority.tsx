@@ -43,8 +43,8 @@ const guideGalleries:Record<string,ProjectImage[]>={
  'acoustic-clouds':[
   {src:'/projects/rwc-featured/microsoft-acoustic-clouds-wide.jpg',alt:'Large suspended acoustic ceiling clouds with integrated perimeter lighting',caption:'Suspended acoustic clouds with continuous perimeter lighting.',source:'Rambo Walls & Ceilings · Microsoft'},
   {src:'/projects/rwc-featured/microsoft-acoustic-clouds-detail.jpg',alt:'Close view of an acoustic ceiling cloud and integrated light frame',caption:'Close field view of the cloud edge, panel layout and integrated light frame.',source:'Rambo Walls & Ceilings · Microsoft'},
-  {src:'/projects/steelstud-archive/formation-ceiling.jpg',alt:'Circular suspended ceiling clouds from the SteelStud.ca archive',caption:'Circular suspended ceiling clouds recovered from the SteelStud.ca legacy archive.',source:'SteelStud.ca legacy archive'},
-  {src:'/projects/rwc-archive/20241018_090504.jpg',alt:'Rectangular suspended T-bar ceiling islands in an open plenum',caption:'Suspended rectangular ceiling islands below an exposed service plenum.',source:'Rambo Walls & Ceilings'}
+  {src:'/projects/cloud-ceiling-finished.webp',alt:'Finished dropped drywall cloud ceiling below an exposed structure',caption:'Finished SteelStud.ca drywall cloud dropped below the main ceiling plane.',source:'SteelStud.ca legacy archive'},
+  {src:'/projects/steelstud-archive/circular-ceiling-framing.jpg',alt:'Steel-stud framing for an unfinished dropped ceiling cloud',caption:'Unfinished SteelStud.ca cloud framing before board and final finish.',source:'SteelStud.ca legacy archive'}
  ],
  'suspended-tbar':[
   {src:'/projects/rwc-archive/20211005_130715.jpg',alt:'Completed suspended T-bar ceiling in a commercial meeting room',caption:'Completed commercial T-bar ceiling coordinated with lights and diffusers.',source:'Rambo Walls & Ceilings'},
@@ -54,7 +54,7 @@ const guideGalleries:Record<string,ProjectImage[]>={
  ],
  'specialty':[
   {src:'/projects/steelstud-archive/commercial-ceiling.jpg',alt:'Curved blue specialty ceiling canopy from the SteelStud.ca archive',caption:'Curved coloured canopy recovered from the SteelStud.ca legacy archive.',source:'SteelStud.ca legacy archive'},
-  {src:'/projects/steelstud-archive/formation-ceiling.jpg',alt:'Circular suspended ceiling islands from the SteelStud.ca archive',caption:'Overlapping circular ceiling islands in an exposed-structure interior.',source:'SteelStud.ca legacy archive'},
+  {src:'/projects/steelstud-archive/formation-ceiling.jpg',alt:'Circular recessed ceiling feature from the SteelStud.ca archive',caption:'Overlapping circular recessed ceiling forms in an exposed-structure interior.',source:'SteelStud.ca legacy archive'},
   {src:'/projects/rwc-archive/20220907_095928.jpg',alt:'Large circular feature ceiling with integrated downlights and diffusers',caption:'Circular specialty ceiling coordinating panel joints, lighting, diffusers and open-plenum edges.',source:'Rambo Walls & Ceilings'},
   {src:'/projects/rwc-featured/microsoft-acoustic-clouds-wide.jpg',alt:'Illuminated rectangular suspended ceiling features',caption:'Repeated suspended ceiling features with integrated perimeter lighting.',source:'Rambo Walls & Ceilings · Microsoft'}
  ],

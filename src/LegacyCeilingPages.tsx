@@ -143,8 +143,8 @@ const guides: LegacyGuide[] = [
       },
       {
         src: "/projects/steelstud-archive/formation-ceiling.jpg",
-        alt: "Circular suspended ceiling islands",
-        caption: "Framing resolved into finished circular ceiling forms",
+        alt: "Circular recessed ceiling feature",
+        caption: "Finished recessed circular ceiling forms",
         href: "/systems/specialty",
       },
       {

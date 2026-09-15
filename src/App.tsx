@@ -51,8 +51,9 @@ const systems = [
   },
   {
     slug: "acoustic-clouds",
-    title: "Acoustic Clouds",
-    short: "Suspended absorptive elements for targeted reverberation control.",
+    title: "Cloud Ceilings & Acoustic Clouds",
+    short:
+      "Dropped ceiling islands and suspended absorptive elements below the main ceiling plane.",
     Icon: DraftingCompass,
   },
   {
@@ -89,11 +90,11 @@ const homeSystems = [
   {
     href: "/systems/acoustic-clouds",
     title: "Cloud Ceilings & Acoustic Clouds",
-    image: "/projects/steelstud-archive/formation-ceiling.jpg",
-    alt: "Circular suspended cloud ceiling islands from the SteelStud.ca archive",
+    image: "/projects/cloud-ceiling-finished.webp",
+    alt: "Finished dropped drywall cloud ceiling from the SteelStud.ca archive",
     source: "SteelStud.ca legacy project",
     description:
-      "Suspended cloud ceilings create a distinct ceiling plane below the structure. See real circular islands and acoustic clouds, with mounting, spacing, lighting and service coordination.",
+      "A true cloud is dropped below the main ceiling plane. See finished and framing-stage SteelStud.ca clouds plus acoustic cloud installations, lighting and service coordination.",
   },
   {
     href: "/systems/acoustic-baffles",
