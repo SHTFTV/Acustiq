@@ -88,12 +88,12 @@ const homeSystems = [
   },
   {
     href: "/systems/acoustic-clouds",
-    title: "Acoustic Clouds",
-    image: "/projects/rwc-featured/microsoft-acoustic-clouds-wide.jpg",
-    alt: "Suspended acoustic cloud ceiling installed by Rambo Walls and Ceilings",
-    source: "Rambo Walls & Ceilings · Microsoft",
+    title: "Cloud Ceilings & Acoustic Clouds",
+    image: "/projects/steelstud-archive/formation-ceiling.jpg",
+    alt: "Circular suspended cloud ceiling islands from the SteelStud.ca archive",
+    source: "SteelStud.ca legacy project",
     description:
-      "Suspended absorptive islands that reduce reverberation and organize an open ceiling. See real cloud installations, mounting, spacing, lighting and service coordination.",
+      "Suspended cloud ceilings create a distinct ceiling plane below the structure. See real circular islands and acoustic clouds, with mounting, spacing, lighting and service coordination.",
   },
   {
     href: "/systems/acoustic-baffles",
@@ -306,11 +306,11 @@ function Home() {
       </section>
       <div className="concept real-hero-image">
         <img
-          src="/projects/rwc-featured/southpoint-wood-slat-acoustic-ceiling.jpg"
-          alt="Linear wood acoustic ceiling installed by Rambo Walls and Ceilings"
+          src="/projects/rwc-featured/suspended-wood-slat-ceiling.jpg"
+          alt="Suspended wood slat ceiling installed by Rambo Walls and Ceilings"
         />
         <div className="concept-label">
-          REAL LINEAR WOOD CEILING · RAMBO WALLS &amp; CEILINGS
+          REAL SUSPENDED WOOD CEILING · RAMBO WALLS &amp; CEILINGS
         </div>
       </div>
       <section className="section white">
