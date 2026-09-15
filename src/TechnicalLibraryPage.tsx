@@ -12,7 +12,7 @@ const topics=[
 ];
 
 export default function TechnicalLibraryPage(){return <div className="tl-page">
-<header className="tl-top"><a className="tl-brand" href="/">ACUSTIQ<span>.</span></a><nav><a href="/systems">Systems</a><a href="/visualizer">Visualizer</a><a href="/product-knowledge">Product Knowledge</a><a href="/technical-library">Technical Library</a><a href="/#gallery">Gallery</a></nav><a className="tl-price" href="/installers/vancouver">Get Installation Pricing</a></header>
+<header className="tl-top"><a className="tl-brand" href="/">ACUSTIQ<span>.</span></a><nav><a href="/systems">Systems</a><a href="/visualizer">Visualizer</a><a href="/product-knowledge">Product Knowledge</a><a href="/technical-library">Technical Library</a><a href="/#gallery">Gallery</a></nav><a className="tl-price" href="/contractors/rambo-walls-ceilings">Rambo / Vancouver</a></header>
 <main>
 <section className="tl-hero"><span>TECHNICAL LIBRARY</span><h1>Practical architectural<br/>ceiling knowledge.</h1><p>Field-useful guidance for architects, designers, estimators and installers covering acoustics, suspension systems, seismic concepts, takeoffs, coordination and Canadian specification language.</p><div className="tl-jump">{topics.map(({id,title,Icon})=><a href={`#${id}`} key={id}><Icon size={18}/><span>{title}</span></a>)}</div></section>
 

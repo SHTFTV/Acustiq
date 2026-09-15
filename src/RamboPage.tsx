@@ -24,9 +24,9 @@ const beattyPhotos:GalleryPhoto[]=[
 ];
 
 const steelStudAcousticPhotos:GalleryPhoto[]=[
-  {src:'/projects/cloud-ceiling-installation-hires.webp'},
+  {src:'/projects/steelstud-archive/circular-ceiling-framing.jpg'},
   {src:'/projects/cloud-ceiling-finished.webp'},
-  {src:'/projects/linear-wood-feature-ceiling.webp'},
+  {src:'/projects/steelstud-archive/formation-ceiling.jpg'},
 ];
 
 const galleryPhotos:GalleryPhoto[]=[
@@ -34,6 +34,15 @@ const galleryPhotos:GalleryPhoto[]=[
   ...beattyPhotos,
   ...rwcArchivePhotos.map(({src})=>({src})),
   ...steelStudAcousticPhotos,
+];
+
+const serviceAreas=[
+  ['vancouver','Vancouver'],
+  ['burnaby','Burnaby'],
+  ['surrey','Surrey'],
+  ['richmond','Richmond'],
+  ['coquitlam','Coquitlam'],
+  ['abbotsford','Abbotsford'],
 ];
 
 export default function RamboPage(){
@@ -56,6 +65,7 @@ export default function RamboPage(){
 
  return <div className="project-detail"><script type="application/ld+json" dangerouslySetInnerHTML={{__html:JSON.stringify(schema)}}/><header className="project-nav"><a href="/" className="brand">ACUSTIQ<span>.</span></a><nav><a href="/systems">Systems</a><a href="/gallery">Gallery</a><a href="/technical-library">Technical Library</a></nav><a href="https://rambowalls.com" className="top-cta" target="_blank" rel="noopener noreferrer">Contact Rambo</a></header><main>
   <section className="project-hero"><div className="project-hero-copy"><span>FEATURED CONTRACTOR / LOWER MAINLAND</span><h1>Rambo Walls &amp; Ceilings.</h1><p>Commercial ceilings, acoustic treatments, steel stud framing and drywall.</p><div className="project-facts"><div><MapPin/><b>Lower Mainland, BC</b></div><div><PanelsTopLeft/><b>Ceiling systems</b></div><div><Building2/><b>Interior construction</b></div></div></div><img src="/projects/rwc-featured/ilm-disney-acoustic-baffles.jpg" alt="Rambo Walls and Ceilings project"/></section>
+  <nav className="rwc-area-nav" aria-label="Rambo Walls and Ceilings service areas"><span>RAMBO BY AREA</span>{serviceAreas.map(([slug,name])=><a key={slug} href={`/installers/${slug}`}>{name}</a>)}</nav>
   <section className="rwc-simple-gallery-heading"><span>PROJECT PHOTOS</span><h2>RWC gallery.</h2></section>
   <section className="rwc-simple-gallery" aria-label="Rambo Walls and Ceilings photo gallery">{galleryPhotos.map((photo,index)=><button type="button" className="rwc-gallery-item" key={`${photo.src}-${index}`} onClick={()=>setOpenIndex(index)} aria-label={`Open RWC project photo ${index+1}`}><img src={photo.src} alt={photo.title||`RWC project photo ${index+1}`} loading={index<10?'eager':'lazy'}/></button>)}</section>
  </main>
