@@ -23,6 +23,9 @@ const baseMeta={
   '/legacy/acoustic-ceilings':['Acoustic Ceilings — Legacy Trade Guide','A substantial guide to T-bar, clouds, baffles, panels, linear acoustic ceilings, ratings, coordination and real installations.'],
   '/legacy/ceiling-framing':['Ceiling Framing — Legacy Steel Stud Guide','Steel framing for ceiling drops, bulkheads, clouds, coves and architectural ceiling features, with real legacy project photography.'],
   '/legacy/drywall-ceilings':['Drywall Ceilings, Repairs & Smoothing — Legacy Guide','Drywall ceiling installation, repair, texture matching, skim coating, popcorn removal and smooth ceiling finishing.'],
+  '/insights':['Architectural Ceiling Insights & Planning Guides','Practical ceiling and acoustic planning articles for owners, designers, contractors and facilities teams.'],
+  '/insights/acoustic-ceiling-retrofit-occupied-offices':['Acoustic Ceiling Retrofits in Occupied Offices','Plan acoustic ceiling retrofits around existing services, occupants, access, dust control and a maintainable handover.'],
+  '/insights/wood-slat-ceilings-vs-acoustic-baffles':['Wood Slat Ceilings vs. Acoustic Baffles','Compare wood slat ceilings and acoustic baffles by appearance, tested acoustic assembly, service coordination, access and lifecycle.'],
 };
 const projectImages={
   '/projects/837-beatty-tectum-acoustic-panels':[
@@ -63,7 +66,7 @@ for(const url of routes){
     .replace(/<meta property="og:title"[^>]*>/,`<meta property="og:title" content="${esc(title)} | ACUSTIQ" />`)
     .replace(/<meta property="og:description"[^>]*>/,`<meta property="og:description" content="${esc(description)}" />`)
     .replace(/<meta property="og:url"[^>]*>/,`<meta property="og:url" content="${canonical}" />`)
-    .replace(/<meta property="og:type"[^>]*>/,`<meta property="og:type" content="${url.startsWith('/projects/')?'article':'website'}" />`)
+    .replace(/<meta property="og:type"[^>]*>/,`<meta property="og:type" content="${url.startsWith('/projects/')||url.startsWith('/insights/')?'article':'website'}" />`)
     .replace(/<meta property="og:image"[^>]*>/,`<meta property="og:image" content="${domain}${socialImage}" />`)
     .replace(/<meta property="og:image:alt"[^>]*>/,`<meta property="og:image:alt" content="${esc(socialImageAlt)}" />`)
     .replace(/<meta name="twitter:title"[^>]*>/,`<meta name="twitter:title" content="${esc(title)} | ACUSTIQ" />`)
