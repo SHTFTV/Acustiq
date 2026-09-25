@@ -3,6 +3,7 @@ import { Root } from "./main";
 import { authoritySystemSlugs } from "./SystemAuthority";
 import { regionalCities } from "./RegionalPages";
 import { legacyGuideSlugs } from "./LegacyCeilingPages";
+import { insightSlugs } from "./InsightsPages";
 
 export const routes = [
   "/",
@@ -19,6 +20,8 @@ export const routes = [
   "/gallery/rwc-projects",
   "/legacy",
   ...legacyGuideSlugs.map((slug) => `/legacy/${slug}`),
+  "/insights",
+  ...insightSlugs.map((slug) => `/insights/${slug}`),
   ...regionalCities.map(([slug]) => `/installers/${slug}`),
 ];
 

@@ -14,6 +14,7 @@ import ProjectPage from "./ProjectPage.tsx";
 import BurquitlamProjectPage from "./BurquitlamProjectPage.tsx";
 import RamboPage from "./RamboPage.tsx";
 import RwcArchivePage from "./RwcArchivePage.tsx";
+import { InsightPage, InsightsIndexPage, insightSlugs } from "./InsightsPages.tsx";
 import {
   LegacyGuidePage,
   LegacyIndexPage,
@@ -38,6 +39,11 @@ export function Root({ pathOverride }: { pathOverride?: string } = {}) {
   if (path === "/contractors/rambo-walls-ceilings") return <RamboPage />;
   if (path === "/gallery/rwc-projects") return <RwcArchivePage />;
   if (path === "/legacy") return <LegacyIndexPage />;
+  if (path === "/insights") return <InsightsIndexPage />;
+  const insightMatch = path.match(/^\/insights\/([^/]+)$/);
+  const insightSlug = insightMatch?.[1];
+  if (insightSlug && insightSlugs.includes(insightSlug))
+    return <InsightPage slug={insightSlug} />;
   const legacyMatch = path.match(/^\/legacy\/([^/]+)$/);
   const legacySlug = legacyMatch?.[1];
   if (legacySlug && legacyGuideSlugs.includes(legacySlug))
