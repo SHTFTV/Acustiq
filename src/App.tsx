@@ -1,3 +1,4 @@
+import RecentCeilingProjects from './RecentCeilingProjects';
 import React from "react";
 import {
   ArrowRight,
@@ -314,6 +315,7 @@ function Home() {
           REAL SUSPENDED WOOD CEILING · RAMBO WALLS &amp; CEILINGS
         </div>
       </div>
+      <RecentCeilingProjects />
       <section className="section white">
         <div className="sectionhead">
           <div>
@@ -353,7 +355,7 @@ function Home() {
             View all eight system guides <ArrowRight size={18} />
           </A>
           <A to="/contractors/rambo-walls-ceilings" className="secondary">
-            Open the 59-photo Rambo gallery
+            Open Rambo’s project gallery
           </A>
         </div>
       </section>
@@ -679,7 +681,7 @@ function Gallery() {
           </A>
         </div>
       </div>
-      <div className="gallery-grid">
+      <RecentCeilingProjects /><div className="gallery-grid">
         <A
           to="/projects/burquitlam-strata-meeting-room-ceiling"
           className="gallery-project gallery-feature project-card-link"
