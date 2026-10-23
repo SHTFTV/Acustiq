@@ -534,12 +534,12 @@ function Contractors() {
     <section className="page">
       <div className="pagehero">
         <span>CONTRACTORS / INSTALLATION</span>
-        <h1>Need the ceiling installed?</h1>
+        <h1>Acoustic ceiling contractors in Vancouver &amp; the Lower Mainland.</h1>
         <p>
-          For field pricing and installation in the Lower Mainland, connect with
-          our featured regional installation contractor.
+          Compare acoustic ceiling installation scope, then connect with our featured Lower Mainland contractor for field pricing. ACUSTIQ provides system guidance and referrals; the installer reviews and quotes the work.
         </p>
       </div>
+      <figure style={{maxWidth:1100,margin:"0 auto",padding:"0 24px 32px"}}><img src="/projects/rwc-featured/ilm-disney-acoustic-baffles.jpg" alt="Suspended acoustic baffles installed by Rambo at ILM / Disney" style={{width:"100%",maxHeight:520,objectFit:"cover",borderRadius:16}}/><figcaption style={{fontSize:13,marginTop:10}}>ILM / Disney acoustic baffle installation. Photo: Mason McKenzie / Rambo Wall &amp; Ceiling Limited; a real project example.</figcaption></figure>
       <section className="section white">
         <div className="sectionhead">
           <div>
@@ -603,17 +603,18 @@ function Contractors() {
           </A>
           <a
             className="secondary"
-            href="https://rambowalls.com"
+            href="https://www.rambowalls.com/acoustic-ceiling-contractors"
             target="_blank"
             rel="noopener noreferrer"
           >
-            Visit RamboWalls.com
+            Acoustic ceiling installation at Rambo →
           </a>
           <A to="/gallery" className="secondary">
             View project gallery
           </A>
         </div>
       </section>
+      <section className="section white"><div className="sectionhead"><div><span>BEFORE YOU REQUEST PRICING</span><h2>Find a contractor for the actual ceiling scope.</h2></div><p>T-bar grids, acoustic clouds, baffles and linear ceilings require different materials, supports and coordination. Match the installer discussion to the specified assembly.</p></div><div className="contractor-proof"><article><h3>1. Define the work</h3><p>Send the room use, city, ceiling area, height, drawings and existing photographs. Note whether this is a new installation, retrofit or tile replacement.</p></article><article><h3>2. Check the assembly</h3><p>Confirm the product, acoustic backing, suspension, lighting, service access and required performance. Absorption within a room differs from sound isolation between rooms.</p></article><article><h3>3. Confirm the quote</h3><p>Ask the contractor to identify inclusions, exclusions, site access, working hours and unresolved design details. A referral or gallery photograph is not a confirmed booking.</p></article></div><div className="actions"><a className="primary" href="tel:+17787732790">Call Mason at Rambo: 778-773-2790</a><a className="secondary" href="mailto:rambowallceiling@gmail.com">Send Rambo your drawings</a><A className="secondary" to="/systems/suspended-tbar">Understand suspended T-bar ceilings</A></div></section>
       <section className="section dark">
         <div className="sectionhead">
           <div>

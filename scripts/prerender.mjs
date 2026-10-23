@@ -17,7 +17,7 @@ const baseMeta={
   '/visualizer':['Ceiling System Visualizer','Sketch a room and compare suspended T-bar, acoustic cloud and linear wood ceiling concepts before product selection and coordination.'],
   '/product-knowledge':['Architectural Ceiling Product Knowledge','Compare real architectural ceiling products, materials, acoustic performance snapshots and manufacturer information.'],
   '/technical-library':['Acoustic & Ceiling Technical Library','Practical Canadian guidance for acoustic ratings, suspended ceiling components, seismic fundamentals, estimating and service coordination.'],
-  '/contractors':['Lower Mainland Ceiling Installation','Connect architectural ceiling research with experienced suspended, acoustic and specialty ceiling installation in the Lower Mainland.'],
+  '/contractors':['Acoustic Ceiling Contractors Vancouver & Lower Mainland','Find an acoustic ceiling contractor for suspended T-bar, clouds, baffles and specialty ceiling installation. Compare scope and contact the featured Rambo team directly.'],
   '/gallery':['Architectural Ceiling Project Gallery','View real Rambo Walls & Ceilings field and completed-project photography for suspended, wood and specialty ceiling assemblies.'],
   '/projects/837-beatty-tectum-acoustic-panels':['837 Beatty Tectum Acoustic Panel Installation','See the real beveled Tectum acoustic wall panel installation by Rambo Walls & Ceilings at 837 Beatty Street in Vancouver, BC.'],
   '/projects/burquitlam-strata-meeting-room-ceiling':['Burquitlam Strata Meeting-Room Ceiling','Real Burquitlam strata renovation near Lougheed Mall with a dropped T-bar ceiling, four-inch perimeter lighting detail and coordinated interior work.'],
@@ -62,8 +62,8 @@ function meta(url){
 }
 for(const url of routes){
   const [title,description]=meta(url); const canonical=`${domain}${url==='/'?'/':url}`; const body=render(url);
-  const socialImage=(url.startsWith('/insights/')?projectImages[url]?.[0]:projectImages[url]?.at(-1))?.[0]||'/projects/cloud-ceiling-finished.webp';
-  const socialImageAlt=(url.startsWith('/insights/')?projectImages[url]?.[0]:projectImages[url]?.at(-1))?.[1]||'Finished suspended cloud ceiling with integrated recessed lighting';
+  const socialImage=url === '/contractors' ? '/images/acoustic-ceiling-contractors-share.jpg' : (url.startsWith('/insights/')?projectImages[url]?.[0]:projectImages[url]?.at(-1))?.[0]||'/projects/cloud-ceiling-finished.webp';
+  const socialImageAlt=url === '/contractors' ? 'ACUSTIQ acoustic ceiling contractor guide with actual Rambo acoustic baffle photography' : (url.startsWith('/insights/')?projectImages[url]?.[0]:projectImages[url]?.at(-1))?.[1]||'Finished suspended cloud ceiling with integrated recessed lighting';
   const structured={"@context":"https://schema.org","@type":"WebPage",name:title,description,url:canonical,isPartOf:{"@type":"WebSite",name:'ACUSTIQ',url:`${domain}/`},inLanguage:'en-CA',breadcrumb:{"@type":"BreadcrumbList",itemListElement:[{"@type":"ListItem",position:1,name:'ACUSTIQ',item:`${domain}/`},...(url.startsWith('/projects/')?[{"@type":"ListItem",position:2,name:'Project Gallery',item:`${domain}/gallery`},{"@type":"ListItem",position:3,name:title,item:canonical}]:[])]}};
   let html=template.replace('<div id="root"></div>',`<div id="root">${body}</div>`)
     .replace(/<title>.*?<\/title>/,`<title>${esc(title)} | ACUSTIQ</title>`)
