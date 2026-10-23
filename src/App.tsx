@@ -251,6 +251,7 @@ function Header() {
           </button>
           <div className="contractor-menu-panel">
             <span>LOWER MAINLAND INSTALLERS</span>
+            <A to="/contractors"><b>Acoustic ceiling contractors</b><small>Installation scope and local contacts</small></A>
             <A to="/contractors/rambo-walls-ceilings">
               <b>Vancouver</b>
               <small>Rambo Walls &amp; Ceilings</small>
@@ -447,8 +448,7 @@ function Home() {
             <Building2 />
             <h3>Install</h3>
             <p>
-              Connect a defined ceiling concept with an experienced regional
-              installer.
+              Connect a defined ceiling concept with an experienced regional installer. <A to="/contractors">Find acoustic ceiling contractors →</A>
             </p>
           </div>
         </div>
