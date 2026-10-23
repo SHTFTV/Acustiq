@@ -1,4 +1,5 @@
 import RecentCeilingProjects from './RecentCeilingProjects';
+import {LatestAcousticGuides} from './InsightsPages';
 import React from "react";
 import {
   ArrowRight,
@@ -316,7 +317,7 @@ function Home() {
           REAL SUSPENDED WOOD CEILING · RAMBO WALLS &amp; CEILINGS
         </div>
       </div>
-      <RecentCeilingProjects />
+      <LatestAcousticGuides/><RecentCeilingProjects />
       <section className="section white">
         <div className="sectionhead">
           <div>
