@@ -6,7 +6,8 @@ function sync() {
   const current = location.pathname;
   if (current !== route) { route = current; hidden = false; }
   const scopes = [...document.querySelectorAll('main, #root, [data-rambo-photo-credit], [aria-label="Latest project planning story"]')];
-  const assigned = !!document.querySelector('[data-project-business="rambo"]') || scopes.some(node => /rambo|mason\s+mckenzie/i.test(node.textContent || '') || [...node.querySelectorAll('img')].some(img => /rambo|mason\s+mckenzie/i.test(img.alt + ' ' + img.getAttribute('src'))));
+  const eligible = /^\/(?:installers\/|locations\/|projects\/|insights\/|blog\/)/.test(current) || ['/contractors/rambo-walls-ceilings','/gallery/rwc-projects'].includes(current.replace(/\/$/,''));
+  const assigned = eligible && (!!document.querySelector('[data-project-business="rambo"]') || scopes.some(node => /rambo|mason\s+mckenzie/i.test(node.textContent || '') || [...node.querySelectorAll('img')].some(img => /rambo|mason\s+mckenzie/i.test(img.alt + ' ' + img.getAttribute('src')))));
   host = document.getElementById('rambo-network-contact');
   if (!host && assigned) { document.body.insertAdjacentHTML('beforeend', markup); host = document.getElementById('rambo-network-contact'); }
   if (!host) return;

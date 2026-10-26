@@ -10,10 +10,12 @@ export function installRamboCards(root) {
    if(entry.isDirectory()) { visit(file); continue; }
    if(!/\.html?$/.test(entry.name))continue;
    let source=fs.readFileSync(file,'utf8');
-   if(!source.includes('/rambo-contact.css'))source=source.replace('</head>','<link rel="stylesheet" href="/rambo-contact.css"/></head>');
-   if(!source.includes('src="/rambo-contact.js"'))source=source.replace('</body>','<script src="/rambo-contact.js" defer></script></body>');
+   const route='/'+path.relative(root,file).replace(/\/index\.html$/, '').replace(/^index\.html$/,'');
+   const eligible=/^\/(?:installers\/|locations\/|projects\/|insights\/|blog\/)/.test(route) || route==='/contractors/rambo-walls-ceilings' || route==='/gallery/rwc-projects';
    const body=(source.match(/<main\b[^>]*>[\s\S]*?<\/main>/i)||[])[0] || source.replace(/<(script|style|header|nav|footer)\b[^>]*>[\s\S]*?<\/\1>/gi,'');
-   if(/rambo|mason\s+mckenzie/i.test(body)) {
+   if(eligible && /rambo|mason\s+mckenzie/i.test(body)) {
+    if(!source.includes('/rambo-contact.css'))source=source.replace('</head>','<link rel="stylesheet" href="/rambo-contact.css"/></head>');
+    if(!source.includes('src="/rambo-contact.js"'))source=source.replace('</body>','<script src="/rambo-contact.js" defer></script></body>');
     assigned.push('/'+path.relative(root,file).replace(/\/index\.html$/, '').replace(/^index\.html$/,''));
     if(!source.includes('data-rambo-contact-owner'))source=source.replace('<html ', '<html data-rambo-contact-owner ');
     if(!source.includes('id="rambo-network-contact"'))source=source.replace('</body>',markup+'</body>');

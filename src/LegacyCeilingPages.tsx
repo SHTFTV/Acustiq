@@ -302,7 +302,7 @@ function Nav() {
   return (
     <header className="legacy-top">
       <a href="/" className="legacy-brand">
-        ACUSTIQ<span>.</span>
+        <img src="/acustiq-logo.svg" width="212" height="58" alt="ACUSTIQ — Acoustic intelligence" style={{display:"block",maxWidth:"100%",height:"auto"}} />
       </a>
       <nav>
         <a href="/systems">Ceiling Systems</a>

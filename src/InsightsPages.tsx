@@ -48,7 +48,7 @@ const insights: Insight[] = [
 ];
 
 function Header() {
-  return <header className="insight-top"><a href="/" className="insight-brand">ACUSTIQ<span>.</span></a><nav><a href="/systems">Systems</a><a href="/insights">Insights</a><a href="/gallery">Gallery</a><a href="/technical-library">Technical Library</a></nav></header>;
+  return <header className="insight-top"><a href="/" className="insight-brand"><img src="/acustiq-logo.svg" width="212" height="58" alt="ACUSTIQ — Acoustic intelligence" style={{display:"block",maxWidth:"100%",height:"auto"}} /></a><nav><a href="/systems">Systems</a><a href="/insights">Insights</a><a href="/gallery">Gallery</a><a href="/technical-library">Technical Library</a></nav></header>;
 }
 
 export function InsightsIndexPage() {

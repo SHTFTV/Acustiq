@@ -224,12 +224,7 @@ function A({ to, children, className = "" }: AProps) {
     <a
       href={to}
       className={className}
-      onClick={(e) => {
-        if (!to.startsWith("/#")) {
-          e.preventDefault();
-          go(to);
-        }
-      }}
+
     >
       {children}
     </a>
@@ -239,7 +234,7 @@ function Header() {
   return (
     <header className="topbar">
       <A to="/" className="brand">
-        ACUSTIQ<span>.</span>
+        <img src="/acustiq-logo.svg" width="212" height="58" alt="ACUSTIQ — Acoustic intelligence" />
       </A>
       <nav>
         <A to="/systems">Systems</A>
@@ -251,8 +246,8 @@ function Header() {
             Contractors
           </button>
           <div className="contractor-menu-panel">
-            <span>LOWER MAINLAND INSTALLERS</span>
-            <A to="/contractors"><b>Acoustic ceiling contractors</b><small>Installation scope and local contacts</small></A>
+            <span>ACOUSTIC IQ · CONTRACTOR NETWORK</span>
+            <A to="/contractors"><b>Acoustic ceiling contractors</b><small>Explore the network or apply to join</small></A>
             <A to="/contractors/rambo-walls-ceilings">
               <b>Vancouver</b>
               <small>Rambo Walls &amp; Ceilings</small>
@@ -261,8 +256,8 @@ function Header() {
         </div>
         <A to="/gallery">Gallery</A>
       </nav>
-      <A to="/contractors/rambo-walls-ceilings" className="top-cta">
-        Contact Rambo
+      <A to="/contractors#apply" className="top-cta">
+        Join the network
       </A>
     </header>
   );
@@ -270,7 +265,7 @@ function Header() {
 function Footer() {
   return (
     <footer>
-      <b>ACUSTIQ.</b>
+      <a href="/"><img src="/acustiq-logo-light.svg" width="212" height="58" alt="ACUSTIQ — Acoustic intelligence" /></a>
       <span>Architectural Ceiling Systems & Acoustic Design</span>
       <span>
         Canada · Ceiling knowledge, visualization and installation resources
@@ -295,16 +290,14 @@ function Home() {
           <em>with confidence.</em>
         </h1>
         <p>
-          Eight substantial ceiling guides connect real installations and
-          recovered trade photography with practical design, acoustic,
-          coordination and installation knowledge.
+          Acoustic IQ: understand the system, ask better questions and connect with the right installer. Practical ceiling knowledge and a growing independent contractor network across Canada.
         </p>
         <div className="actions">
           <A to="/systems" className="primary">
             Compare ceiling systems <ArrowRight size={18} />
           </A>
-          <A to="/contractors/rambo-walls-ceilings" className="secondary">
-            View all Rambo projects
+          <A to="/contractors" className="secondary">
+            Find your installation path
           </A>
         </div>
       </section>
@@ -531,115 +524,12 @@ function SystemsIndex() {
   );
 }
 function Contractors() {
-  return (
-    <section className="page">
-      <div className="pagehero">
-        <span>CONTRACTORS / INSTALLATION</span>
-        <h1>Acoustic ceiling contractors in Vancouver &amp; the Lower Mainland.</h1>
-        <p>
-          Compare acoustic ceiling installation scope, then connect with our featured Lower Mainland contractor for field pricing. ACUSTIQ provides system guidance and referrals; the installer reviews and quotes the work.
-        </p>
-      </div>
-      <figure style={{maxWidth:1100,margin:"0 auto",padding:"0 24px 32px"}}><img src="/projects/rwc-featured/ilm-disney-acoustic-baffles.jpg" alt="Suspended acoustic baffles installed by Rambo at ILM / Disney" style={{width:"100%",maxHeight:520,objectFit:"cover",borderRadius:16}}/><figcaption style={{fontSize:13,marginTop:10}}>ILM / Disney acoustic baffle installation. Photo: Mason McKenzie / Rambo Wall &amp; Ceiling Limited; a real project example.</figcaption></figure>
-      <section className="section white">
-        <div className="sectionhead">
-          <div>
-            <span>FEATURED REGIONAL INSTALLER</span>
-            <h2>Rambo Walls & Ceilings</h2>
-          </div>
-          <p>
-            Commercial ceilings, suspended T-bar systems, steel stud framing,
-            drywall and specialty ceiling construction.
-          </p>
-        </div>
-        <div className="contractor-proof">
-          <div>
-            <CheckCircle2 />
-            <b>Real project photography</b>
-            <p>
-              Gallery work is identified as Rambo Walls & Ceilings project work.
-            </p>
-          </div>
-          <div>
-            <CheckCircle2 />
-            <b>Lower Mainland coverage</b>
-            <p>
-              Regional pathways connect ACUSTIQ system knowledge with local
-              installation.
-            </p>
-          </div>
-          <div>
-            <CheckCircle2 />
-            <b>Ceiling + wall scope</b>
-            <p>
-              Suspended ceilings, specialty features, framing and drywall
-              coordination.
-            </p>
-          </div>
-        </div>
-        <A
-          to="/projects/837-beatty-tectum-acoustic-panels"
-          className="rambo-project"
-        >
-          <img
-            src="/projects/837-beatty-tectum-wall-finished.jpg"
-            alt="Rambo Walls and Ceilings beveled Tectum acoustic panel installation at 837 Beatty Street"
-          />
-          <div>
-            <span>FEATURED RAMBO PROJECT / VANCOUVER</span>
-            <h3>Beveled Tectum Acoustic Panel Installation</h3>
-            <p>
-              Seven real field photographs document material preparation,
-              layout, beveled joints and the completed Level 2 lobby
-              installation at 837 Beatty Street.
-            </p>
-            <b>
-              View project case study <ArrowRight size={16} />
-            </b>
-          </div>
-        </A>
-        <div className="actions">
-          <A to="/installers/vancouver" className="primary">
-            View contractor profile <ArrowRight size={18} />
-          </A>
-          <a
-            className="secondary"
-            href="https://www.rambowalls.com/acoustic-ceiling-contractors"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Acoustic ceiling installation at Rambo →
-          </a>
-          <A to="/gallery" className="secondary">
-            View project gallery
-          </A>
-        </div>
-      </section>
-      <section className="section white"><div className="sectionhead"><div><span>BEFORE YOU REQUEST PRICING</span><h2>Find a contractor for the actual ceiling scope.</h2></div><p>T-bar grids, acoustic clouds, baffles and linear ceilings require different materials, supports and coordination. Match the installer discussion to the specified assembly.</p></div><div className="contractor-proof"><article><h3>1. Define the work</h3><p>Send the room use, city, ceiling area, height, drawings and existing photographs. Note whether this is a new installation, retrofit or tile replacement.</p></article><article><h3>2. Check the assembly</h3><p>Confirm the product, acoustic backing, suspension, lighting, service access and required performance. Absorption within a room differs from sound isolation between rooms.</p></article><article><h3>3. Confirm the quote</h3><p>Ask the contractor to identify inclusions, exclusions, site access, working hours and unresolved design details. A referral or gallery photograph is not a confirmed booking.</p></article></div><div className="actions"><a className="primary" href="tel:+17787732790">Call Mason at Rambo: 778-773-2790</a><a className="secondary" href="mailto:rambowallceiling@gmail.com">Send Rambo your drawings</a><A className="secondary" to="/systems/suspended-tbar">Understand suspended T-bar ceilings</A></div></section>
-      <section className="section dark">
-        <div className="sectionhead">
-          <div>
-            <span>INSTALLATION AREAS</span>
-            <h2>Find ceiling installation by city.</h2>
-          </div>
-        </div>
-        <div className="resource-grid">
-          {cities.map(([slug, name]) => (
-            <A to={`/installers/${slug}`} className="resource" key={slug}>
-              <MapPin />
-              <div>
-                <h3>{name}</h3>
-                <p>
-                  Architectural ceiling systems and local installation pathway.
-                </p>
-              </div>
-              <ChevronRight />
-            </A>
-          ))}
-        </div>
-      </section>
-    </section>
-  );
+ return <section className="page">
+  <div className="pagehero"><span>ACOUSTIC IQ · CONTRACTOR NETWORK</span><h1>Know the system.<br/>Find the right contractor.</h1><p>ACUSTIQ brings ceiling knowledge and regional installation expertise together. Understand your options, define the scope and follow the local installation path.</p></div>
+  <figure style={{maxWidth:1100,margin:"0 auto",padding:"0 24px 32px"}}><img src="/projects/rwc-featured/ilm-disney-acoustic-baffles.jpg" alt="Suspended acoustic baffles illustrating a coordinated commercial ceiling assembly" style={{width:"100%",maxHeight:520,objectFit:"cover",borderRadius:16}}/><figcaption style={{fontSize:13,marginTop:10}}>Acoustic baffle project example. Photography: Mason McKenzie / Rambo Wall &amp; Ceiling Limited. An illustration of installation scope, not a national service claim.</figcaption></figure>
+  <section className="section white"><div className="sectionhead"><div><span>REGIONAL INSTALLATION</span><h2>Local knowledge. A clear project path.</h2></div><p>Contractors serve their own regions. Review the local page for the installer, project scope and direct contact details.</p></div><div className="actions"><A to="/installers/lower-mainland" className="primary">Lower Mainland installers <ArrowRight size={18}/></A><A to="/systems" className="secondary">Compare ceiling systems</A></div></section>
+  <section id="apply" className="section"><div className="sectionhead"><div><span>CONTRACTOR NETWORK · BETA</span><h2>Bring your acoustic IQ.</h2></div><p>We’re looking for a couple of top-rated ceiling and acoustic contractors outside the Lower Mainland to help shape the network. Applications are reviewed individually; submitting an enquiry does not confirm acceptance or territory availability.</p></div><p>Tell us your company, city and service area. Include your website, public review profile and examples of suspended ceilings, baffles, clouds or specialty acoustic work.</p><div className="actions"><a className="primary" href="mailto:build@buildershaus.com?subject=ACUSTIQ%20contractor%20beta%20application">Apply to join the beta <ArrowRight size={18}/></a></div><p>Lower Mainland contractors are excluded from this beta intake. Project enquiries for that region belong on the local installer pages.</p></section>
+ </section>;
 }
 function Gallery() {
   const projects = [
