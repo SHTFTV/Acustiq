@@ -18,7 +18,7 @@ export function installRamboCards(root) {
     if(!source.includes('src="/rambo-contact.js"'))source=source.replace('</body>','<script src="/rambo-contact.js" defer></script></body>');
     assigned.push('/'+path.relative(root,file).replace(/\/index\.html$/, '').replace(/^index\.html$/,''));
     if(!source.includes('data-rambo-contact-owner'))source=source.replace('<html ', '<html data-rambo-contact-owner ');
-    if(!source.includes('id="rambo-network-contact"'))source=source.replace('</body>',markup+'</body>');
+    if(!source.includes('id="rambo-network-contact"'))source=source.replace('</body>',(route==='/insights/open-ceiling-installation-record-acoustic-specification'?markup.replace(/<a href="sms:[^"]+">[\s\S]*?<\/a>/,''):markup)+'</body>');
    }
    fs.writeFileSync(file,source);
   }

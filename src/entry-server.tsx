@@ -28,3 +28,5 @@ export const routes = [
 export function render(path: string) {
   return renderToString(<Root pathOverride={path} />);
 }
+
+export { insightFeed } from "./InsightsPages";
